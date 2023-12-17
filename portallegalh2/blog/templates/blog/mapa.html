@@ -1,0 +1,58 @@
+<!-- blog/templates/blog/mapa.html -->
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Mapa Informativo - Portal Legal H2{% endblock %}
+
+{% block content %}
+<h1>Sua localização é:</h1>
+<h2></h2>
+
+<!-- Div que envolve o mapa -->
+<div id="map-container" style="margin-top: 20px;">
+
+    <!-- Div para o mapa -->
+    <div id="mapid" style="height: 500px; width: 100%;"></div>
+
+    <!-- Inclua uma tag script para seu código JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Coordenadas fixas para São Paulo, Brasil
+            var coordenadasFixas = [-23.550, -46.633];
+
+            // Inicialize o mapa
+            var mapa = L.map('mapid').setView(coordenadasFixas, 12);
+
+            // Adicione uma camada de mapa (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(mapa);
+
+            // Nenhuma adição de marcador
+
+        });
+    </script>
+
+</div>
+
+<style>
+    /* Adicione estilos para tornar o mapa mais atraente */
+    #map-container {
+        border: 2px solid #ddd;
+        /* Borda fina */
+        border-radius: 8px;
+        /* Cantos arredondados */
+        overflow: hidden;
+        /* Garante que a borda não quebre */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Sombra suave */
+    }
+
+    #mapid {
+        width: 100%;
+        /* Ocupa 100% da largura da div pai */
+        height: 100%;
+        /* Ocupa 100% da altura da div pai */
+    }
+</style>
+
+{% endblock %}

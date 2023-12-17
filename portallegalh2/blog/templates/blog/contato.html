@@ -1,0 +1,30 @@
+<!-- blog/templates/blog/contato.html -->
+{% extends 'blog/base.html' %}
+
+{% block title %}Contato - Portal Legal H2{% endblock %}
+
+{% block content %}
+<h2>Entre em Contato</h2>
+
+<p>Estamos felizes em ouvir de você! Use os detalhes de contato abaixo para entrar em contato conosco:</p>
+
+<p>Email: portallegalh2@gmail.com</p>
+<p>Telefone: (83) 998839563</p>
+
+<p>Ou preencha o formulário abaixo:</p>
+
+<form method="post">
+    {% csrf_token %}
+    <!-- Adicione os campos do formulário conforme necessário -->
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" required></textarea>
+
+    <button type="submit">Enviar Mensagem</button>
+</form>
+{% endblock %}

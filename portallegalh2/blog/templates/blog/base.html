@@ -1,0 +1,52 @@
+<!-- blog/templates/blog/base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <title>{% block title %}Portal Legal H2{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Portal Legal H2</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Página Inicial</a></li>
+                <li><a href="{% url 'quem_somos' %}">Quem somos</a></li>
+                <li><a href="{% url 'contato' %}">Contato</a></li>
+                <li><a href="{% url 'duvidas' %}">Tire sua dúvida</a></li>
+                <li><a href="{% url 'mapa' %}">Mapa informativo</a></li>
+                <li><a href="{% url 'noticias' %}">Notícias</a></li>
+                <div id="map"></div>
+                <!-- Adicione mais links de navegação conforme necessário -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Portal Legal H2. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="{% static 'blog/js/scripts.js' %}"></script>
+
+</body>
+
+</html>
